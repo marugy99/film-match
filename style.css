@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Squada+One&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  /* background-image: url(images/Confetti-Doodles.svg); */
+}
+
+h1,
+h2 {
+  font-family: "Squada One", cursive;
+  color: #ff4d4d;
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin: 0.8rem;
+}
+
+input,
+select {
+  font-family: inherit;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+section {
+  min-height: 90vh;
+  display: grid;
+  place-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  position: relative;
+  margin: auto;
+  padding: 5px;
+  width: 120px;
+  border-radius: 10px;
+  background-color: #fde575;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#logo {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: auto;
+}
+
+.welcome-section {
+  width: 30%;
+  background-color: #78aeff;
+  padding: 2rem;
+  border-radius: 50px;
+}
+
+.movie-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#start-btn {
+  cursor: pointer;
+  background-color: #ff4d4d;
+  color: white;
+  width: 50%;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.file-picker {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+#img-user {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.match-elem #img-user {
+  width: 200px;
+  height: 200px;
+}
+
+.show-match {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 80%;
+}
+
+.match-elem {
+  flex: 1;
+  background-color: #78aeff;
+  padding: 2rem;
+  border-radius: 50px;
+}
+
+.display-movie {
+  margin-left: 5rem;
+}
+
+.movie-poster {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+.none {
+  display: none;
+}

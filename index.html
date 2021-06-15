@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Welcome section -->
+
+    <section class="start-ui">
+
+        <header>
+            <img src="images/popcorn-logo.png" alt="logo" id="logo">
+            <h1>Film Match</h1>
+            <h3>Find the movie you're looking for!</h3>
+        </header>
+
+        <div class="welcome-section">
+
+            <img src="images/default.png" alt="img-default" id="img-user">
+
+            <input type="file" name="img-file" id="img-file" class="file-picker" accept="image/gif, image/jpeg, image/png">
+            <label for="img-file">Upload picture</label>
+
+            <h3>Welcome!</h3>
+            
+            <form>
+                <input type="text" placeholder="Enter your name" id="name-input" required>
+                
+                <h3>What are you looking for?</h3>
+                
+                <div class="movie-data">
+                    <select name="genre" id="genre" required>
+                        <option disabled selected value> Select an option </option>
+                        <option value="Horror">Horror</option>
+                        <option value="Action">Action</option>
+                        <option value="Animated">Animated</option>
+                        <option value="Documentary">Documentary</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="History">History</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Crime">Crime</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Sci fi">Sci fi</option>
+                    </select>
+
+                    <input id="start-btn" value="Start" type="submit">
+                </div>
+            </form>
+            
+        </div>
+    </section>
+
+    <!-- Game section -->
+
+    <section id="match-ui">
+
+        <img src="images/popcorn-logo.png" alt="logo" id="logo">
+        <h1>Film Match</h1>
+        <h3>It's a match!</h3>
+
+        <div class="show-match">
+
+            <div class="match-elem">
+                <img src="images/default.png" alt="img-default" id="img-user">
+                <p>Name: <span id="name-value"></span></p>
+                <p>Looking for: <span id="genre-value"></span></p>
+            </div>
+            
+            <div class="match-elem display-movie">
+                <!-- Movies are added here -->
+            </div>
+
+            <button class="next-movie">Next</button>
+        </div>
+
+    </section>
+    
+
+    <script src="image-upload.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
