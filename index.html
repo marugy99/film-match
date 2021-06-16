@@ -14,8 +14,12 @@
     <section class="start-ui">
 
         <header>
-            <img src="images/popcorn-logo.png" alt="logo" id="logo">
-            <h1>Film Match</h1>
+
+            <div class="logo">
+                <h1>Film Match</h1>
+                <img src="images/popcorn-logo.png" alt="logo" id="logo-img">
+            </div>
+
             <h3>Find the movie you're looking for!</h3>
         </header>
 
@@ -60,15 +64,24 @@
 
     <section id="match-ui">
 
-        <img src="images/popcorn-logo.png" alt="logo" id="logo">
-        <h1>Film Match</h1>
-        <h3>It's a match!</h3>
+        <header>
+
+            <div class="logo">
+                <h1>Film Match</h1>
+                <img src="images/popcorn-logo.png" alt="logo" id="logo-img">
+            </div>
+            
+            <h3>Find the movie you're looking for!</h3>
+            
+        </header>
+        
+        <button class="next-movie">Next</button>
 
         <div class="show-match">
 
             <div class="match-elem">
                 <img src="images/default.png" alt="img-default" id="img-user">
-                <p>Name: <span id="name-value"></span></p>
+                <h3><span id="name-value"></span></h3>
                 <p>Looking for: <span id="genre-value"></span></p>
             </div>
             
@@ -76,7 +89,7 @@
                 <!-- Movies are added here -->
             </div>
 
-            <button class="next-movie">Next</button>
+
         </div>
 
     </section>

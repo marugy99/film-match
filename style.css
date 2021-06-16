@@ -9,7 +9,7 @@ h1,
 h2 {
   font-family: "Squada One", cursive;
   color: #ff4d4d;
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin: 0;
   text-align: center;
 }
@@ -55,11 +55,19 @@ label {
   text-align: center;
 }
 
-#logo {
-  width: 70px;
-  height: 70px;
-  display: block;
-  margin: auto;
+header {
+  margin-top: 2rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+#logo-img {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
 }
 
 .welcome-section {
@@ -103,8 +111,8 @@ label {
 }
 
 .match-elem #img-user {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
 }
 
 .show-match {
@@ -126,11 +134,44 @@ label {
 }
 
 .movie-poster {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   display: block;
   margin: auto;
+}
+
+.next-movie {
+  width: 5rem;
+  height: 2.5rem;
+  border-radius: 20px;
+  background-color: lightgray;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  border: none;
+}
+
+.overview {
+  max-height: 70px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+.overview::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overview::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overview::-webkit-scrollbar-thumb {
+  background-color: #ff4d4d;
+  border-radius: 20px;
+  max-height: 2px;
 }
 
 .none {

@@ -21,8 +21,51 @@ async function getMovies(e) {
     
     e.preventDefault();
 
-    // Finish adding all the genres, probably using a switch statement
-    // Add the options to the form
+    assignID();
+
+    //Generate a random page number
+    const randomNumberPg = Math.floor(Math.random() * (50));
+    
+    const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=7391fe5e6a32318027103e00e3a6093e&with_genres=${genreID}&page=${randomNumberPg}&language=en-US`;
+    
+    const res = await fetch(APIURL);
+    const resData = await res.json();
+
+    console.log(resData)
+
+    // Generate a random index number
+    const randomNumber = Math.floor(Math.random() * (resData.results.length));
+    
+    // Here it should display the loader
+    
+    displayMatchUI();
+    
+    showMovie(resData.results[randomNumber]);
+}
+
+function showMovie(movie) {
+    displayMovie.innerHTML = `
+        <img
+        src="${getPoster(IMGPATH, movie.poster_path)}"
+        alt="${movie.title}"
+        class="movie-poster"
+        />
+        <div class="movie-info">
+            <h3>${movie.title}</h3>
+            <p class="overview">${movie.overview}</p>
+        </div>
+    `;
+}
+
+function getPoster(imgPath, movie) {
+    if (!movie) {
+        return 'images/poster-404.png';
+    } else {
+        return imgPath + movie;
+    }
+}
+
+function assignID() {
     if (genreInput.value === 'Horror') {
         genreID = 27;
     } else if(genreInput.value === 'Action') {
@@ -46,35 +89,6 @@ async function getMovies(e) {
     } else if (genreInput.value === 'Sci fi') {
         genreID = 878;
     }
-    
-    const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=04c35731a5ee918f014970082a0088b1&with_genres=${genreID}`;
-    
-    const res = await fetch(APIURL);
-    const resData = await res.json();
-
-    console.log(resData)
-
-    const randomNumber = Math.floor(Math.random() * (resData.results.length));
-
-    // Here it should display the loader
-    
-    displayMatchUI();
-    
-    showMovie(resData.results[randomNumber]);
-}
-
-function showMovie(movie) {
-    displayMovie.innerHTML = `
-        <img
-        src="${IMGPATH + movie.poster_path}"
-        alt="${movie.title}"
-        class="movie-poster"
-        />
-        <div class="movie-info">
-            <h3>${movie.title}</h3>
-            <p>${movie.overview}</p>
-        </div>
-    `;
 }
 
 function displayMatchUI() {
