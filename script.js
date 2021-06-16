@@ -1,4 +1,3 @@
-const startBtn = document.querySelector('#start-btn');
 const nameInput = document.querySelector('#name-input');
 const matchUI = document.querySelector('.match-ui');
 const startUI = document.querySelector('.start-ui');
@@ -6,22 +5,31 @@ const nameValue = document.querySelector('#name-value');
 const genreInput = document.querySelector('#genre');
 const displayMovie = document.querySelector('.display-movie');
 
+// Hide 'match' UI
+
 matchUI.classList.add('none');
 
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
-// Movie API
+// Event listeners
 
-document.querySelector('form').addEventListener('submit', getMovies);
+document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    document.querySelector('.loader').style.display = 'block';
+    startUI.style.display = 'none';
+
+    setTimeout(getMovies, 2000);
+});
+
 document.querySelector('.next-movie').addEventListener('click', getMovies)
+
 document.querySelector('.change-cat').addEventListener('click', displayStartUI)
 
 let genreID;
 
-async function getMovies(e) {
+async function getMovies() {
     
-    e.preventDefault();
-
     assignID();
 
     //Generate a random page number
@@ -30,14 +38,13 @@ async function getMovies(e) {
     const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=7391fe5e6a32318027103e00e3a6093e&with_genres=${genreID}&page=${randomNumberPg}&language=en-US`;
     
     const res = await fetch(APIURL);
-    const resData = await res.json();
 
-    console.log(resData)
+    const resData = await res.json()
 
     // Generate a random index number
     const randomNumber = Math.floor(Math.random() * (resData.results.length));
     
-    // Here it should display the loader
+    document.querySelector('.loader').style.display = 'none'
     
     displayMatchUI();
     
@@ -53,9 +60,16 @@ function showMovie(movie) {
         />
         <div class="movie-info">
             <h3>${movie.title}</h3>
+            <p><strong>Vote average:</strong> ${movie.vote_average} ⭐</p>
+            <p><strong>Year:</strong> ${getYear(movie.release_date)} 📅</p>
             <p class="overview">${movie.overview}</p>
         </div>
     `;
+}
+
+function getYear(date) {
+    const year = new Date(date);
+    return year.getFullYear();
 }
 
 function getPoster(imgPath, movie) {
@@ -65,6 +79,8 @@ function getPoster(imgPath, movie) {
         return imgPath + movie;
     }
 }
+
+// Depending on the input assign an ID
 
 function assignID() {
     if (genreInput.value === 'Horror') {

@@ -31,7 +31,7 @@
             <input type="file" name="img-file" id="img-file" class="file-picker" accept="image/gif, image/jpeg, image/png">
             <label for="img-file">Upload picture</label>
 
-            <h3>Welcome!</h3>
+            <h3>Welcome! <span class="wave">👋</span></h3>
             
             <form>
                 <input type="text" placeholder="Enter your name" id="name-input" required>
@@ -59,6 +59,11 @@
             </form>       
             
         </section>
+
+        <section class="loader">
+            <img src="images/1961-movie-loading.gif" alt="loader" class="loading">
+        </section>
+
         <!-- Game section -->
         <section class="match-ui">
             
@@ -72,7 +77,8 @@
                 <div class="match-elem">
                     <img src="images/default.png" alt="img-default" id="img-user">
                     <h3><span id="name-value"></span></h3>
-                    <p>Looking for: <span id="genre-value"></span></p>
+                    <p>Looking for <strong><span id="genre-value"></span></strong>  movies!</p>
+                    <p class="random-fact">Did you know that the first motion-picture film camera was called the Kinetoscope? 🎥</p>
                 </div>
                 
                 <div class="match-elem display-movie">
@@ -81,6 +87,10 @@
             </div>
     
         </section>
+
+        <footer>
+            Made with ❤️ by Maru
+        </footer>
 
     </main>
 

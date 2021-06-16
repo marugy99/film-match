@@ -1,3 +1,5 @@
+// Logic for the 'upload picture' feature
+
 const imgInput = document.querySelector('#img-file');
 const imgUser = document.querySelectorAll('#img-user')
 
