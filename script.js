@@ -1,6 +1,6 @@
 const startBtn = document.querySelector('#start-btn');
 const nameInput = document.querySelector('#name-input');
-const matchUI = document.querySelector('#match-ui');
+const matchUI = document.querySelector('.match-ui');
 const startUI = document.querySelector('.start-ui');
 const nameValue = document.querySelector('#name-value');
 const genreInput = document.querySelector('#genre');
@@ -14,6 +14,7 @@ const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 
 document.querySelector('form').addEventListener('submit', getMovies);
 document.querySelector('.next-movie').addEventListener('click', getMovies)
+document.querySelector('.change-cat').addEventListener('click', displayStartUI)
 
 let genreID;
 
@@ -96,4 +97,9 @@ function displayMatchUI() {
     document.querySelector('#genre-value').textContent = genreInput.value;
     matchUI.classList.remove('none');
     startUI.style.display = 'none';
+}
+
+function displayStartUI() {
+    matchUI.classList.add('none');
+    startUI.style.display = 'block';
 }

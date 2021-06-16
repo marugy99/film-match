@@ -9,22 +9,23 @@
 </head>
 <body>
 
-    <!-- Welcome section -->
-
-    <section class="start-ui">
-
+    
+    <main>
+        
         <header>
-
+            
             <div class="logo">
                 <h1>Film Match</h1>
                 <img src="images/popcorn-logo.png" alt="logo" id="logo-img">
             </div>
-
+            
             <h3>Find the movie you're looking for!</h3>
+            
         </header>
-
-        <div class="welcome-section">
-
+        
+        <!-- Welcome section -->
+        <section class="start-ui">
+    
             <img src="images/default.png" alt="img-default" id="img-user">
 
             <input type="file" name="img-file" id="img-file" class="file-picker" accept="image/gif, image/jpeg, image/png">
@@ -55,45 +56,33 @@
 
                     <input id="start-btn" value="Start" type="submit">
                 </div>
-            </form>
+            </form>       
             
-        </div>
-    </section>
-
-    <!-- Game section -->
-
-    <section id="match-ui">
-
-        <header>
-
-            <div class="logo">
-                <h1>Film Match</h1>
-                <img src="images/popcorn-logo.png" alt="logo" id="logo-img">
+        </section>
+        <!-- Game section -->
+        <section class="match-ui">
+            
+            <div class="buttons">
+                <button class="change-cat btn">Change genre</button>
+                <button class="next-movie btn">Try again</button>
             </div>
-            
-            <h3>Find the movie you're looking for!</h3>
-            
-        </header>
-        
-        <button class="next-movie">Next</button>
-
-        <div class="show-match">
-
-            <div class="match-elem">
-                <img src="images/default.png" alt="img-default" id="img-user">
-                <h3><span id="name-value"></span></h3>
-                <p>Looking for: <span id="genre-value"></span></p>
-            </div>
-            
-            <div class="match-elem display-movie">
-                <!-- Movies are added here -->
-            </div>
-
-
-        </div>
-
-    </section>
     
+            <div class="show-match">
+    
+                <div class="match-elem">
+                    <img src="images/default.png" alt="img-default" id="img-user">
+                    <h3><span id="name-value"></span></h3>
+                    <p>Looking for: <span id="genre-value"></span></p>
+                </div>
+                
+                <div class="match-elem display-movie">
+                    <!-- Movies are added here -->
+                </div>
+            </div>
+    
+        </section>
+
+    </main>
 
     <script src="image-upload.js"></script>
     <script src="script.js"></script>
