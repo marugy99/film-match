@@ -31,24 +31,55 @@ let genreID;
 async function getMovies() {
     
     assignID();
+    
+    try {
+        // Generate random page number
+        const randomNumberPg = Math.floor(Math.random() * (50));
+        
+        const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=7391fe5e6a32318027103e00e3a6093e&with_genres=${genreID}&page=${randomNumberPg}&language=en-US`;
+        
+        // Make GET request to The Movie DB API
+        const res = await fetch(APIURL);
 
-    //Generate a random page number
-    const randomNumberPg = Math.floor(Math.random() * (50));
+        // Check if response is successful
+        if(!res.ok) {
+            // Throw error if response is not ok
+            throw new Error(res.status);
+        }
     
-    const APIURL = `https://api.themoviedb.org/3/discover/movie?api_key=7391fe5e6a32318027103e00e3a6093e&with_genres=${genreID}&page=${randomNumberPg}&language=en-US`;
-    
-    const res = await fetch(APIURL);
+        // Convert response object to JSON
+        const resData = await res.json()
+        
+        // Generate a random index number
+        const randomNumber = Math.floor(Math.random() * (resData.results.length));
 
-    const resData = await res.json()
+        // Hide loader
+        document.querySelector('.loader').style.display = 'none'
+        
+        displayMatchUI();
+        
+        // Display random movie
+        showMovie(resData.results[randomNumber]);
 
-    // Generate a random index number
-    const randomNumber = Math.floor(Math.random() * (resData.results.length));
+    } catch (error) {
+        console.log(error)
+
+        // Go back to the start if there is an error
+        displayStartUI()
+        
+        // Hide loader
+        document.querySelector('.loader').style.display = 'none';
+        
+        // Show error in UI
+        const err = document.createElement('p');
+        err.textContent = 'Something went wrong, try again!';
+        err.classList.add('err-msg');
+        document.querySelector('header').appendChild(err)
+
+        // Remove error message after two seconds
+        setTimeout(() => err.remove(), 3000)
+    }
     
-    document.querySelector('.loader').style.display = 'none'
-    
-    displayMatchUI();
-    
-    showMovie(resData.results[randomNumber]);
 }
 
 function showMovie(movie) {
@@ -69,10 +100,17 @@ function showMovie(movie) {
 
 function getYear(date) {
     const year = new Date(date);
-    return year.getFullYear();
+
+    // If it's not a number just display '-'
+    if(isNaN(year.getFullYear())) {
+        return '-'
+    } else {
+        return year.getFullYear();
+    }
 }
 
 function getPoster(imgPath, movie) {
+    // If it doesn't have a poster display default poster image
     if (!movie) {
         return 'images/poster-404.png';
     } else {
