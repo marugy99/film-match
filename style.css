@@ -27,11 +27,11 @@ input,
 select {
   font-family: inherit;
   border-radius: 10px;
-  outline: none;
   border: none;
   padding: 5px;
   width: 100%;
   font-size: 0.9em;
+  transition: all 300ms ease-in-out;
 }
 
 main {
@@ -53,6 +53,16 @@ label {
   cursor: pointer;
   font-size: 0.9em;
   text-align: center;
+  transition: all 300ms ease-in-out;
+}
+
+input:focus + label,
+input:focus,
+select:focus,
+button:focus,
+.overview:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px rgba(35, 37, 39, 0.4);
 }
 
 header,
@@ -98,11 +108,6 @@ footer {
   font-weight: bold;
 }
 
-label,
-#start-btn {
-  transition: all 300ms ease-in-out;
-}
-
 label:hover,
 #start-btn:hover {
   transform: scale(1.1);
@@ -139,7 +144,7 @@ label:hover,
 .match-elem {
   flex: 1;
   background-color: #78aeff;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 50px;
 }
 
@@ -164,13 +169,12 @@ label:hover,
 .btn {
   cursor: pointer;
   width: 10rem;
-  height: 2.5rem;
+  height: 2.2rem;
   border-radius: 20px;
   background-color: lightgray;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: bold;
-  outline: none;
   border: none;
   margin-bottom: 1rem;
   transition: all 300ms ease-in-out;
@@ -201,9 +205,11 @@ label:hover,
 }
 
 .overview {
-  max-height: 70px;
+  max-height: 90px;
   overflow-y: auto;
   padding-bottom: 10px;
+  font-size: 0.85rem;
+  line-height: 1.8;
 }
 
 .overview::-webkit-scrollbar {
@@ -279,8 +285,8 @@ label:hover,
   }
 
   .btn {
-    font-size: 0.8rem;
-    width: 7rem;
+    font-size: 0.7rem;
+    width: 7.2rem;
     height: 2.2rem;
   }
 

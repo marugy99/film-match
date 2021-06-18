@@ -62,7 +62,7 @@ function showMovie(movie) {
             <h3>${movie.title}</h3>
             <p><strong>Vote average:</strong> ${movie.vote_average} ⭐</p>
             <p><strong>Year:</strong> ${getYear(movie.release_date)} 📅</p>
-            <p class="overview">${movie.overview}</p>
+            <p class="overview" tabindex="0" role="document">${movie.overview}</p>
         </div>
     `;
 }
